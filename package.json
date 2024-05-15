@@ -1,9 +1,10 @@
 {
   "main": "lib/index.js",
+  "type": "module",
   "scripts": {
     "start": "node lib/index.js",
     "compile": "tsc",
-    "build": "npm run build:clean && npm run compile",
+    "build": "npm run build:clean && npm run compile && npx tsc",
     "build:clean": "rm -rf ./lib",
     "build:watch": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,9 +25,11 @@
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.19.2",
+    
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "ts-node": "^10.9.2"
   }
 }
