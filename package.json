@@ -1,35 +1,17 @@
 {
-  "main": "lib/index.js",
-  "type": "module",
-  "scripts": {
-    "start": "node lib/index.js",
-    "compile": "tsc",
-    "build": "npm run build:clean && npm run compile && npx tsc",
-    "build:clean": "rm -rf ./lib",
-    "build:watch": "tsc --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "name": "genkit-intro",
   "version": "1.0.0",
   "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@genkit-ai/ai": "^0.5.0",
-    "@genkit-ai/core": "^0.5.0",
-    "@genkit-ai/dotprompt": "^0.5.0",
-    "@genkit-ai/flow": "^0.5.0",
-    "@genkit-ai/googleai": "^0.5.0",
     "@vercel/node": "^3.1.4",
-    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "express": "^4.19.2",
-    
-    "zod": "^3.23.8"
-  },
-  "devDependencies": {
-    "typescript": "^5.4.5",
-    "ts-node": "^10.9.2"
+    "express": "^4.19.2"
   }
 }
