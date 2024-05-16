@@ -37,7 +37,7 @@ app.post('/chat', async (req, res) => {
         await page.click('[data-testid="send-button"]');
 
         // Wait for 1 second after clicking the button
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // await new Promise(resolve => setTimeout(resolve, 1000));
 
         // Wait for the send button to reappear
         await page.waitForSelector('[data-testid="send-button"]');
