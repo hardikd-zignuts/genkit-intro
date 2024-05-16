@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const puppeteer = require('puppeteer');
-const playwright = require('playwright-core');
-const chromium = require('chrome-aws-lambda');
+const puppeteer = require("puppeteer-core");
+const chromium = require("@sparticuz/chromium");
+chromium.setHeadlessMode = true;
 
 app.use(express.json());
 app.use(cors());
@@ -16,22 +16,12 @@ app.post('/chat', async (req, res) => {
     if (!req.body.prompt) {
         return res.sendStatus(400);
     }
-
-    // const browser = await puppeteer.launch({
-    //     headless: false
-    // });
-    // const path = await chromium.executablePath
-    // console.log({ path });
-    // return res.send('Hello World!')
-    const browser = await playwright.chromium.launch({
+    const browser = await puppeteer.launch({
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
-        executablePath: process.env.NODE_ENV !== "development" ? await chromium.executablePath : "/usr/bin/chromium",
-        headless: false,
-        headless: process.env.NODE_ENV !== "development" ? chromium.headless : true,
-    })
-
-
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
+    });
     try {
         const page = await browser.newPage();
         await page.goto('https://chatgpt.com/', {

@@ -22,14 +22,14 @@
     "@genkit-ai/googleai": "^0.5.0",
     "@google-cloud/vertexai": "^1.1.0",
     "@vercel/node": "^3.1.4",
-    "chrome-aws-lambda": "^10.1.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "playwright-core": "^1.44.0",
-    "puppeteer": "^22.8.2",
+    "puppeteer": "^22.6.4",
+    "puppeteer-core": "^22.6.4",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@sparticuz/chromium": "^123.0.1",
     "typescript": "^5.4.5"
   }
 }
