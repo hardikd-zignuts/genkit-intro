@@ -1,9 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const puppeteer = require("puppeteer-core");
-const chromium = require("@sparticuz/chromium");
-chromium.setHeadlessMode = true;
+const puppeteer = require("puppeteer");
 
 app.use(express.json());
 app.use(cors());
@@ -17,11 +15,10 @@ app.post('/chat', async (req, res) => {
         return res.sendStatus(400);
     }
     const browser = await puppeteer.launch({
-        args: chromium.args,
-        defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath(),
-        headless: chromium.headless,
+        headless: false,
+        executablePath: 'https://github.com/Sparticuz/chromium/releases/download/v123.0.1/chromium-v123.0.1-pack.tar',
     });
+
     try {
         const page = await browser.newPage();
         await page.goto('https://chatgpt.com/', {
